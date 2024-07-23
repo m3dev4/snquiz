@@ -1,0 +1,162 @@
+[
+    {
+        "question": "Quel est le plus grand fleuve du Sénégal?",
+        "choice1": "Fleuve Gambie",
+        "choice2": "Fleuve Sénégal",
+        "choice3": "Fleuve Casamance",
+        "choice4": "Fleuve Saloum",
+        "answer": 2
+    },
+    {
+        "question": "Quelle est la capitale du Sénégal?",
+        "choice1": "Saint-Louis",
+        "choice2": "Touba",
+        "choice3": "Dakar",
+        "choice4": "Ziguinchor",
+        "answer": 3
+    },
+    {
+        "question": "Qui est considéré comme le père de la nation sénégalaise?",
+        "choice1": "Leopold Sédar Senghor",
+        "choice2": "Cheikh Anta Diop",
+        "choice3": "Blaise Diagne",
+        "choice4": "Amadou Bamba",
+        "answer": 1
+    },
+    {
+        "question": "Quelle est la langue nationale parlée par la majorité des Sénégalais?",
+        "choice1": "Français",
+        "choice2": "Wolof",
+        "choice3": "Pulaar",
+        "choice4": "Serer",
+        "answer": 2
+    },
+    {
+        "question": "Quel est le nom de l'île historique connue pour sa maison des esclaves?",
+        "choice1": "Île de Gorée",
+        "choice2": "Île de Ngor",
+        "choice3": "Île de Fadiouth",
+        "choice4": "Île de Carabane",
+        "answer": 1
+    },
+    {
+        "question": "Quel est le plat national du Sénégal?",
+        "choice1": "Yassa",
+        "choice2": "Couscous",
+        "choice3": "Thieboudienne",
+        "choice4": "Mafé",
+        "answer": 3
+    },
+    {
+        "question": "Quelle est la plus grande ethnie du Sénégal?",
+        "choice1": "Sérères",
+        "choice2": "Wolofs",
+        "choice3": "Peuls",
+        "choice4": "Diolas",
+        "answer": 2
+    },
+    {
+        "question": "Comment dit-on 'Bonjour' en Wolof?",
+        "choice1": "Mbalen",
+        "choice2": "Salaam",
+        "choice3": "Naka nga def?",
+        "choice4": "Jërëjëf",
+        "answer": 3
+    },
+    {
+        "question": "Quel est le monument le plus emblématique de Dakar?",
+        "choice1": "Monument de la Renaissance africaine",
+        "choice2": "Phare des Mamelles",
+        "choice3": "Cathédrale de Dakar",
+        "choice4": "Mosquée de la Divinité",
+        "answer": 1
+    },
+    {
+        "question": "Qui a écrit l'hymne national sénégalais?",
+        "choice1": "Birago Diop",
+        "choice2": "Ousmane Sembène",
+        "choice3": "Léopold Sédar Senghor",
+        "choice4": "David Diop",
+        "answer": 3
+    },
+    {
+        "question": "Quelle est la superficie approximative du Sénégal?",
+        "choice1": "96,722 km²",
+        "choice2": "196,722 km²",
+        "choice3": "296,722 km²",
+        "choice4": "396,722 km²",
+        "answer": 2
+    },
+    {
+        "question": "Quel est le nom du désert qui couvre une partie du nord du Sénégal?",
+        "choice1": "Désert du Sahara",
+        "choice2": "Désert de Ferlo",
+        "choice3": "Désert du Namib",
+        "choice4": "Désert de Kalahari",
+        "answer": 2
+    },
+    {
+        "question": "Quel est l'arbre national du Sénégal?",
+        "choice1": "Baobab",
+        "choice2": "Palmier",
+        "choice3": "Fromager",
+        "choice4": "Acacia",
+        "answer": 1
+    },
+    {
+        "question": "Qui est le premier président du Sénégal?",
+        "choice1": "Léopold Sédar Senghor",
+        "choice2": "Abdou Diouf",
+        "choice3": "Macky Sall",
+        "choice4": "Abdoulaye Wade",
+        "answer": 1
+    },
+    {
+        "question": "Quelle est la devise monétaire du Sénégal?",
+        "choice1": "Dollar",
+        "choice2": "Naira",
+        "choice3": "CFA franc",
+        "choice4": "Shilling",
+        "answer": 3
+    },
+    {
+        "question": "Quelle ville est surnommée 'la Venise de l'Afrique'?",
+        "choice1": "Saint-Louis",
+        "choice2": "Dakar",
+        "choice3": "Ziguinchor",
+        "choice4": "Thiès",
+        "answer": 1
+    },
+    {
+        "question": "Quel est le nom du lac célèbre pour sa couleur rose au Sénégal?",
+        "choice1": "Lac de Guiers",
+        "choice2": "Lac Rose",
+        "choice3": "Lac Retba",
+        "choice4": "Lac Tana",
+        "answer": 2
+    },
+    {
+        "question": "Quel est le nom du célèbre musicien sénégalais connu pour sa chanson '7 Seconds'?",
+        "choice1": "Youssou N'Dour",
+        "choice2": "Baaba Maal",
+        "choice3": "Omar Pène",
+        "choice4": "Ismaël Lô",
+        "answer": 1
+    },
+    {
+        "question": "Quel animal est représenté sur le blason du Sénégal?",
+        "choice1": "Lion",
+        "choice2": "Éléphant",
+        "choice3": "Antilope",
+        "choice4": "Hippopotame",
+        "answer": 1
+    },
+    {
+        "question": "Quel est le port principal du Sénégal?",
+        "choice1": "Port de Dakar",
+        "choice2": "Port de Saint-Louis",
+        "choice3": "Port de Ziguinchor",
+        "choice4": "Port de Rufisque",
+        "answer": 1
+    }
+]
