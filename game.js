@@ -448,24 +448,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const getNewQuestion = () => {
         if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
             localStorage.setItem('mostRecentScore', score);
-            // Go to the end page
             return window.location.assign('./end.html');
         }
-
+    
         questionCounter++;
         progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
-        // Update the progress bar
         progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
-
+    
         const questionIndex = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = availableQuestions[questionIndex];
         question.innerText = currentQuestion.question;
-
+    
+        // Afficher l'image de la question
+        const questionImage = document.getElementById('question-image');
+        questionImage.src = currentQuestion.imageUrl;
+    
         choices.forEach((choice) => {
             const number = choice.dataset['number'];
             choice.innerText = currentQuestion.choices[number - 1];
         });
-
+    
         availableQuestions.splice(questionIndex, 1);
         acceptingAnswers = true;
     };
