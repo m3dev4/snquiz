@@ -7,12 +7,19 @@
     <title>Sn_Quiz - Play</title>
     <link rel="stylesheet" href="./app.css" />
     <link rel="stylesheet" href="./game.css" />
+    <link rel="stylesheet" href="/level.css">
     <link rel="icon" type="image/jpg" href="./assets/play.jpg">
   </head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3775445581945009"
      crossorigin="anonymous"></script>
   <body>
     <div class="container">
+      <div id="difficulty-selection" class="flex-center flex-column">
+        <h2>Choisissez le niveau de difficulté</h2>
+        <button id="easy" class="btn">Facile</button>
+        <button id="medium" class="btn">Moyen</button>
+        <button id="hard" class="btn">Difficile</button>
+      </div>
       <div id="loader"></div>
       <div id="game" class="justify-center flex-column hidden">
         <div id="hud">
@@ -52,6 +59,7 @@
         </div>
       </div>
     </div>
+    <script src="/level.js"></script>
     <script src="./game.js"></script>
   </body>
 </html>
