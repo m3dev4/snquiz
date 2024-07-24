@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "difficulty": "medium"
         },
         {
-            "question": "Quel est le nom de la confrérie religieuse fondée par Amadou Bamba?",
+            "question": "Quel est le nom de la confrérie religieuse fondée par Cheikh Ahmadou Bamba?",
             "choices": ["Tidianes", "Mourides", "Qadiriyya", "Chrétiens"],
             "answer": 2,
             "difficulty": "medium"
@@ -290,12 +290,6 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             "question": "Quel est le nom du célèbre chef d'État sénégalais qui a mené le pays vers l'indépendance?",
             "choices": ["Léopold Sédar Senghor", "Macky Sall", "Abdoulaye Wade", "Ousmane Sonko"],
-            "answer": 1,
-            "difficulty": "medium"
-        },
-        {
-            "question": "Quel est le nom du mouvement religieux fondé par Cheikh Anta Diop?",
-            "choices": ["Mouridisme", "Tidianisme", "Qadiriyya", "La Confrérie des Fous"],
             "answer": 1,
             "difficulty": "medium"
         },
