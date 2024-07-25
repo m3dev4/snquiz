@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const progressText = document.getElementById('progressText');
     const scoreText = document.getElementById('score');
     const progressBarFull = document.getElementById('progressBarFull');
+    const skipButton = document.getElementById('skip-button')
+
     let currentQuestion = {};
     let acceptingAnswers = false;
     let score = 0;
@@ -234,9 +236,9 @@ document.addEventListener('DOMContentLoaded', () => {
             "difficulty": "medium"
         },
         {
-            "question": "Quelle est l'équipe de football sénégalaise qui a remporté la Coupe d'Afrique des Nations en 2021?",
-            "choices": ["Gambia", "Sénégal", "Nigeria", "Côte d'Ivoire"],
-            "answer": 2,
+            "question": "Quelle était l'ancienne capitale du Sénégal ?",
+            "choices": ["Dakar", "Thies", "Saint-Louis", "Tambacounda"],
+            "answer": 3,
             "difficulty": "medium"
         },
         {
@@ -306,9 +308,9 @@ document.addEventListener('DOMContentLoaded', () => {
             "difficulty": "hard"
         },
         {
-            "question": "Quel est le nom du compositeur sénégalais célèbre pour sa musique traditionnelle et moderne?",
-            "choices": ["Youssou N'Dour", "Cheikh Anta Diop", "Ousmane Sembene", "Léopold Sédar Senghor"],
-            "answer": 1,
+            "question": "Où se situe le sénegal",
+            "choices": ["Europe", "Amérique", "Asie", "Afrique"],
+            "answer": 4,
             "difficulty": "hard"
         },
         {
@@ -417,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const CORRECT_BONUS = 10;
-    let MAX_QUESTIONS = 20; // Changé en let au lieu de const
+    let MAX_QUESTIONS = 20; 
 
     window.startGame = (difficulty) => {
         console.log(`Starting game with difficulty: ${difficulty}`);
@@ -445,29 +447,32 @@ document.addEventListener('DOMContentLoaded', () => {
         getNewQuestion();
     };
 
+    skipButton.addEventListener('click', () => {
+        if(acceptingAnswers){
+            getNewQuestion()
+        }
+    })
+
     const getNewQuestion = () => {
         if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
             localStorage.setItem('mostRecentScore', score);
+           
             return window.location.assign('./end.html');
         }
-    
+
         questionCounter++;
         progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
         progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
-    
+
         const questionIndex = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = availableQuestions[questionIndex];
         question.innerText = currentQuestion.question;
-    
-        // Afficher l'image de la question
-        const questionImage = document.getElementById('question-image');
-        questionImage.src = currentQuestion.imageUrl;
-    
+
         choices.forEach((choice) => {
             const number = choice.dataset['number'];
             choice.innerText = currentQuestion.choices[number - 1];
         });
-    
+
         availableQuestions.splice(questionIndex, 1);
         acceptingAnswers = true;
     };
