@@ -69,15 +69,15 @@ document.addEventListener('DOMContentLoaded', () => {
             "difficulty": "easy"
         },
         {
-            "question": "En quelle année a eu lieu ce naufrage ?",
-            "choices": ["1998", "2002", "2005", "2008"],
-            "answer": 2,
+            "question": "Quelle est est la religion la plus pratiquée au Sénégal",
+            "choices": ["Islam", "Christianisme", "Animisme", "Bouddhisme"],
+            "answer": 1,
             "difficulty": "easy"
         },
         {
-            "question": "Combien de personnes ont péri ?",
-            "choices": ["654", "1459", "Plus de 2000", "3000"],
-            "answer": 3,
+            "question": "En quel année a eu lieu massacre des tirailleurs Sénégalais ?",
+            "choices": ["1944", "1948", "1864", "1990"],
+            "answer": 1,
             "difficulty": "easy"
         },
         {
