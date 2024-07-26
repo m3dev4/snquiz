@@ -13,105 +13,100 @@ document.addEventListener('DOMContentLoaded', () => {
     let availableQuestions = [];
 
     let questions = [
+       
         {
-            "question": "Quel est le plus grand fleuve du Sénégal?",
-            "choices": ["Fleuve Gambie", "Fleuve Sénégal", "Fleuve Casamance", "Fleuve Saloum"],
+            "question": "Où se situe le Sénégal ?",
+            "choices": ["En Europe", "En Afrique", "En Amérique", "En Asie"],
             "answer": 2,
             "difficulty": "easy"
         },
         {
-            "question": "Quelle est la capitale du Sénégal?",
-            "choices": ["Saint-Louis", "Touba", "Dakar", "Ziguinchor"],
-            "answer": 3,
+            "question": "Que signifient les trois couleurs présentes sur le drapeau national ?",
+            "choices": ["Paix, connaissance, liberté", "Espérance, richesse, sacrifice", "Fécondité, recherche, travail", "Unité, progrès, justice"],
+            "answer": 2,
             "difficulty": "easy"
         },
         {
-            "question": "Quel est le climat prédominant au Sénégal?",
-            "choices": ["Tropical", "Arctique", "Méditerranéen", "Désertique"],
+            "question": "Comment surnomme-t-on ce pays ?",
+            "choices": ["Le pays de la Téranga", "Les éléphants", "Galsen", "Le pays des Baobabs"],
             "answer": 1,
             "difficulty": "easy"
         },
         {
-            "question": "Quel est le nom du pays voisin au sud du Sénégal?",
-            "choices": ["Gambie", "Mauritanie", "Guinée-Bissau", "Mali"],
+            "question": "Quelle est la devise du Sénégal ?",
+            "choices": ["La patrie, l'action, la liberté", "Un peuple, un but, une foi", "Un peuple, une vérité, une loi", "Unité, progrès, solidarité"],
+            "answer": 2,
+            "difficulty": "easy"
+        },
+        {
+            "question": "Quel animal symbolise le pays ?",
+            "choices": ["Le lion", "Le léopard", "Le singe", "L'éléphant"],
+            "answer": 1,
+            "difficulty": "easy"
+        },
+        {
+            "question": "Combien de régions compte le Sénégal ?",
+            "choices": ["20", "17", "14", "15"],
+            "answer": 2,
+            "difficulty": "easy"
+        },
+        {
+            "question": "Quel est ce lieu, symbole de la mémoire de la traite négrière ?",
+            "choices": ["Porte du Troisième millénaire", "Place du Souvenir", "île de Gorée", "L'île de Saint-Louis"],
             "answer": 3,
             "difficulty": "easy"
         },
         {
-            "question": "Quel est le nom du président actuel du Sénégal?",
-            "choices": ["Léopold Sédar Senghor", "Macky Sall", "Abdoulaye Wade", "Bassirou Diomaye Faye"],
+            "question": "Quel ancien président du Sénégal est secrétaire général de l'Organisation internationale de la Francophonie ?",
+            "choices": ["Abdou Diouf", "Abdoulaye Wade", "Abdou Mbaye", "Léopold Sédar Senghor"],
+            "answer": 1,
+            "difficulty": "easy"
+        },
+        {
+            "question": "Quel événement malheureux, un des plus tragiques du monde, a endeuillé le peuple sénégalais ?",
+            "choices": ["Le crash d'un avion", "L'explosion d'une bombe", "Le naufrage du bateau 'le Joola'", "Un tremblement de terre"],
+            "answer": 3,
+            "difficulty": "easy"
+        },
+        {
+            "question": "En quelle année a eu lieu ce naufrage ?",
+            "choices": ["1998", "2002", "2005", "2008"],
+            "answer": 2,
+            "difficulty": "easy"
+        },
+        {
+            "question": "Combien de personnes ont péri ?",
+            "choices": ["654", "1459", "Plus de 2000", "3000"],
+            "answer": 3,
+            "difficulty": "easy"
+        },
+        {
+            "question": "Quelle était l'ancienne capitale du Sénégal ?",
+            "choices": ["Dakar", "M'bour", "Saint-Louis", "Thiès"],
+            "answer": 3,
+            "difficulty": "easy"
+        },
+        {
+            "question": "Le Sénégal est devenu indépendant en :",
+            "choices": ["1950", "1800", "1990", "1960"],
             "answer": 4,
             "difficulty": "easy"
         },
         {
-            "question": "Quel est le nom du célèbre lac salé au Sénégal?",
-            "choices": ["Lac Rose", "Lac de Guiers", "Lac de Sokone", "Lac de Saint-Louis"],
-            "answer": 1,
-            "difficulty": "easy"
-        },
-        {
-            "question": "Quel est le sport le plus populaire au Sénégal?",
-            "choices": ["Basketball", "Football", "Rugby", "Handball"],
-            "answer": 2,
-            "difficulty": "easy"
-        },
-        {
-            "question": "Quel est le nom de l’île au large de Dakar?",
-            "choices": ["Île de Gorée", "Île de Madeleine", "Île de Ngor", "Île de Yoff"],
-            "answer": 1,
-            "difficulty": "easy"
-        },
-        {
-            "question": "Quel est le fruit typique du Sénégal?",
-            "choices": ["Mangue", "Pomme", "Banane", "Orange"],
-            "answer": 1,
-            "difficulty": "easy"
-        },
-        {
-            "question": "Quel est le nom de l’instrument de musique traditionnel du Sénégal?",
-            "choices": ["Guitar", "Balafon", "Piano", "Batterie"],
-            "answer": 2,
-            "difficulty": "easy"
-        },
-        {
-            "question": "Quel est le nom de la danse traditionnelle sénégalaise?",
-            "choices": ["Sabar", "Tango", "Salsa", "Bachata"],
-            "answer": 1,
-            "difficulty": "easy"
-        },
-        {
-            "question": "Quel est le nom du célèbre monument situé à Dakar?",
-            "choices": ["La Tour Eiffel", "Le Christ Rédempteur", "La Monument de la Renaissance Africaine", "La Statue de la Liberté"],
+            "question": "Quelles sont les 2 langues les + pratiquées au Sénégal ?",
+            "choices": ["Le wolof et l'italien", "L'anglais et le français", "Le wolof et le français", "L'espagnol et le portugais"],
             "answer": 3,
             "difficulty": "easy"
         },
         {
-            "question": "Quel est le nom du marché principal de Dakar?",
-            "choices": ["Marché Sandaga", "Marché de Rive Gauche", "Marché de Saint-Louis", "Marché Kermel"],
+            "question": "Sur quelle île se trouve une des plus vieilles maisons des esclaves ?",
+            "choices": ["L'île de Gorée", "L'île St Jean", "L'île Madeleine", "L'île de Saint-Louis"],
             "answer": 1,
             "difficulty": "easy"
         },
         {
-            "question": "Quelle est la langue officielle du Sénégal?",
-            "choices": ["Anglais", "Français", "Espagnol", "Allemand"],
-            "answer": 2,
-            "difficulty": "easy"
-        },
-        {
-            "question": "Quel est le plus grand parc national du Sénégal?",
-            "choices": ["Parc National du Niokolo-Koba", "Parc National de la Langue de Barbarie", "Parc National du Saloum", "Parc National de la Basse Casamance"],
-            "answer": 1,
-            "difficulty": "easy"
-        },
-        {
-            "question": "Quel est le nom du fleuve qui traverse Dakar?",
-            "choices": ["Fleuve Sénégal", "Fleuve Gambie", "Fleuve Casamance", "Fleuve Saloum"],
-            "answer": 1,
-            "difficulty": "easy"
-        },
-        {
-            "question": "Quel est le nom de l’ancien président du Sénégal?",
-            "choices": ["Léopold Sédar Senghor", "Macky Sall", "Abdoulaye Wade", "Ousmane Sonko"],
+            "question": "Et pour finir que signifie 'Sénégal' ?",
+            "choices": ["Notre pirogue (sunu gal)", "Notre chance", "Notre vie", "Notre espoir"],
             "answer": 1,
             "difficulty": "easy"
         },
