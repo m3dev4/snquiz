@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "difficulty": "easy"
         },
         {
-            "question": "Et pour finir que signifie 'Sénégal' ?",
+            "question": "Que signifie 'Sénégal' ?",
             "choices": ["Notre pirogue (sunu gal)", "Notre chance", "Notre vie", "Notre espoir"],
             "answer": 1,
             "difficulty": "easy"
