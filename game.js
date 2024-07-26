@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             "question": "Combien de régions compte le Sénégal ?",
             "choices": ["20", "17", "14", "15"],
-            "answer": 2,
+            "answer": 3,
             "difficulty": "easy"
         },
         {
