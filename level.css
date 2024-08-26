@@ -1,0 +1,32 @@
+.hidden {
+    display: none;
+}
+
+#difficulty-selection {
+    text-align: center;
+}
+
+#difficulty-selection h2 {
+    margin-bottom: 2rem;
+    color: #56a5eb;
+}
+
+#difficulty-selection .btn {
+    margin: 0.5rem;
+    width: 20rem;
+    font-size: 1.8rem;
+    padding: 1rem 0;
+    text-align: center;
+    border: 0.1rem solid #56a5eb;
+    text-decoration: none;
+    color: #56a5eb;
+    background-color: white;
+}
+
+#difficulty-selection .btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.4rem 0 rgba(86, 185, 235, 0.5);
+    transform: translateY(-0.1rem);
+    transition: transform 150ms;
+}
+
