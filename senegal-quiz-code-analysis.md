@@ -1,10 +1,10 @@
-# Rapport d'Analyse de Code Détaillé - Quiz sur le Sénégal
+# Rapport d'Analyse de Code Détaillé avec Code Source - Quiz sur le Sénégal
 
 ## Table des matières
 
 1. Introduction
 2. Structure du projet
-3. Analyse des fichiers
+3. Analyse des fichiers avec code source
    3.1 index.html
    3.2 game.html
    3.3 game.js
@@ -31,131 +31,354 @@ Le projet est composé de plusieurs fichiers HTML et JavaScript, structurés com
 - `highscores.html` : Page des meilleurs scores
 - `highscores.js` : Logique de la page des meilleurs scores
 
-## 3. Analyse des fichiers
+## 3. Analyse des fichiers avec code source
 
 ### 3.1 index.html
 
-#### Description
-Ce fichier constitue la page d'accueil de l'application.
+#### Code source
 
-#### Caractéristiques principales
-- Utilise HTML5 avec l'encodage UTF-8
-- Optimisé pour les appareils mobiles (balise viewport)
-- Titre de la page : "Sn_Quiz"
-- Liens vers des fichiers CSS externes
-- Intégration d'une icône favicon
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sn_Quiz</title>
+    <link rel="stylesheet" href="./app.css" />
+    <link rel="icon" type="image/jpg" href="./assets/logo.jpg">
+    <meta name="google-site-verification" content="iNzSj2wvdEOVu1PtrK5FfEiu_teOG2LQn5i3kg-xozQ" />
+  </head>
+  <body>
+    <div class="container">
+      <div id="home" class="flex-center flex-column">
+        <h1>Sn_Quiz</h1>
+        <a class="btn" href="./game.html">Play</a>
+        <a class="btn" href="./highscores.html">High Scores</a>
+      </div>
+    </div>
+  </body>
+</html>
+```
 
-#### Structure
-- Un conteneur principal avec deux boutons :
-  - "Play" : Redirige vers la page du jeu
-  - "High Scores" : Redirige vers la page des meilleurs scores
-
-#### Observations
+#### Analyse
+- Structure HTML5 standard avec meta tags pour l'encodage et la compatibilité
+- Liens vers une feuille de style CSS externe (app.css)
+- Structure simple avec un conteneur principal et deux boutons de navigation
 - Design minimaliste et fonctionnel
 
 ### 3.2 game.html
 
-[Le contenu de cette section reste inchangé]
+#### Code source
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sn_Quiz - Play</title>
+    <link rel="stylesheet" href="./app.css" />
+    <link rel="stylesheet" href="./game.css" />
+    <link rel="icon" type="image/jpg" href="./assets/play.jpg">
+  </head>
+  <body>
+    <div class="container">
+      <div id="loader"></div>
+      <div id="game" class="justify-center flex-column hidden">
+        <div id="hud">
+          <div id="hud-item">
+            <p id="progressText" class="hud-prefix">
+              Question
+            </p>
+            <div id="progressBar">
+              <div id="progressBarFull"></div>
+            </div>
+          </div>
+          <div id="hud-item">
+            <p class="hud-prefix">
+              Score
+            </p>
+            <h1 class="hud-main-text" id="score">
+              0
+            </h1>
+          </div>
+        </div>
+        <h2 id="question"></h2>
+        <div class="choice-container">
+          <p class="choice-prefix">A</p>
+          <p class="choice-text" data-number="1"></p>
+        </div>
+        <div class="choice-container">
+          <p class="choice-prefix">B</p>
+          <p class="choice-text" data-number="2"></p>
+        </div>
+        <div class="choice-container">
+          <p class="choice-prefix">C</p>
+          <p class="choice-text" data-number="3"></p>
+        </div>
+        <div class="choice-container">
+          <p class="choice-prefix">D</p>
+          <p class="choice-text" data-number="4"></p>
+        </div>
+      </div>
+    </div>
+    <script src="./game.js"></script>
+  </body>
+</html>
+```
+
+#### Analyse
+- Structure similaire à index.html, avec des éléments spécifiques au jeu
+- Inclusion d'un loader pour indiquer le chargement
+- HUD (Head-Up Display) pour afficher la progression et le score
+- Quatre conteneurs pour les choix de réponses
+- Lien vers le script game.js pour la logique du jeu
 
 ### 3.3 game.js
 
-#### Description
-Ce fichier contient toute la logique du jeu de quiz.
+#### Code source (extrait)
 
-#### Fonctionnalités principales
-- Initialisation du jeu
-- Gestion des questions et des réponses
-- Mise à jour du score et de la progression
-- Passage à la question suivante
+```javascript
+const question = document.getElementById('question');
+const choices = Array.from(document.getElementsByClassName('choice-text'));
+const progressText = document.getElementById('progressText');
+const scoreText = document.getElementById('score');
+const progressBarFull = document.getElementById('progressBarFull');
+const loader = document.getElementById('loader');
+const game = document.getElementById('game');
+let currentQuestion = {};
+let acceptingAnswers = false;
+let score = 0;
+let questionCounter = 0;
+let availableQuestions = [];
 
-#### Structure du code
-- Variables globales pour l'état du jeu
-- Array de 20 questions sur le Sénégal
-- Fonctions principales :
-  - `startGame()` : Initialise le jeu
-  - `getNewQuestion()` : Affiche une nouvelle question
-  - Event listeners pour les choix de réponses
-  - `incrementScore()` : Met à jour le score
+let questions = [
+    {
+        "question": "Quel est le plus grand fleuve du Sénégal?",
+        "choices": [
+            "Fleuve Gambie",
+            "Fleuve Sénégal",
+            "Fleuve Casamance",
+            "Fleuve Saloum"
+        ],
+        "answer": 2
+    },
+    // ... autres questions ...
+];
 
-#### Observations
-- Code bien structuré avec des fonctions clairement définies
-- Utilisation efficace du localStorage pour stocker le score
-- Constantes pour définir les paramètres du jeu (CORRECT_BONUS, MAX_QUESTIONS)
+startGame = () => {
+    questionCounter = 0;
+    score = 0;
+    availableQuestions = [...questions];
+    getNewQuestion();
+    game.classList.remove('hidden');
+    loader.classList.add('hidden');
+};
+
+getNewQuestion = () => {
+    if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        localStorage.setItem('mostRecentScore', score);
+        return window.location.assign('./end.html');
+    }
+    questionCounter++;
+    progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
+    progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
+    
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    currentQuestion = availableQuestions[questionIndex];
+    question.innerText = currentQuestion.question;
+
+    choices.forEach((choice) => {
+        const number = choice.dataset['number'];
+        choice.innerText = currentQuestion.choices[number - 1];
+    });
+
+    availableQuestions.splice(questionIndex, 1);
+    acceptingAnswers = true;
+};
+
+choices.forEach((choice) => {
+    choice.addEventListener('click', (e) => {
+        if (!acceptingAnswers) return;
+
+        acceptingAnswers = false;
+        const selectedChoice = e.target;
+        const selectedAnswer = selectedChoice.dataset['number'];
+
+        const classToApply =
+            selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
+
+        if (classToApply === 'correct') {
+            incrementScore(CORRECT_BONUS);
+        }
+
+        selectedChoice.parentElement.classList.add(classToApply);
+
+        setTimeout(() => {
+            selectedChoice.parentElement.classList.remove(classToApply);
+            getNewQuestion();
+        }, 1000);
+    });
+});
+
+incrementScore = (num) => {
+    score += num;
+    scoreText.innerText = score;
+};
+
+startGame();
+```
+
+#### Analyse
+- Utilisation de variables globales pour gérer l'état du jeu
+- Array de questions avec leurs choix et réponses
+- Fonctions principales : 
+  - `startGame()` pour initialiser le jeu
+  - `getNewQuestion()` pour afficher une nouvelle question
+  - Event listeners pour gérer les clics sur les réponses
+- Utilisation de localStorage pour sauvegarder le score
+- Gestion de la progression et du score en temps réel
 
 ### 3.4 end.html
 
-[Le contenu de cette section reste inchangé]
+#### Code source
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Congratulations!</title>
+    <link rel="stylesheet" href="./app.css" />
+    <link rel="icon" type="image/jpg" href="./assets/Congo.jpg">
+  </head>
+  <body>
+    <div class="container">
+      <div id="end" class="flex-center flex-column">
+        <h1 id="finalScore"></h1>
+        <form>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="username"
+          />
+          <button
+            type="submit"
+            class="btn"
+            id="saveScoreBtn"
+            onclick="saveHighScore(event)"
+            disabled
+          >
+            Save
+          </button>
+        </form>
+        <a class="btn" href="./game.html">Play Again</a>
+        <a class="btn" href="./">Go Home</a>
+      </div>
+    </div>
+    <script src="./end.js"></script>
+  </body>
+</html>
+```
+
+#### Analyse
+- Page de fin de jeu avec affichage du score final
+- Formulaire pour sauvegarder le score avec un nom d'utilisateur
+- Boutons pour rejouer ou retourner à l'accueil
+- Lien vers le script end.js pour la logique de sauvegarde du score
 
 ### 3.5 end.js
 
-#### Description
-Gère la logique de la page de fin de jeu.
+#### Code source
 
-#### Fonctionnalités principales
-- Récupération et affichage du score final
-- Gestion du formulaire de sauvegarde du score
-- Sauvegarde du score dans le localStorage
+```javascript
+const username = document.getElementById('username');
+const saveScoreBtn = document.getElementById('saveScoreBtn');
+const finalScore = document.getElementById('finalScore');
+const mostRecentScore = localStorage.getItem('mostRecentScore');
 
-#### Structure du code
-- Sélection des éléments DOM nécessaires
-- Event listener pour activer/désactiver le bouton de sauvegarde
-- Fonction `saveHighScore()` pour sauvegarder le score
+const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 
-#### Observations
-- Utilisation efficace du localStorage pour la persistance des données
-- Gestion appropriée des événements utilisateur
+const MAX_HIGH_SCORES = 5;
+
+finalScore.innerText = mostRecentScore;
+
+username.addEventListener('keyup', () => {
+    saveScoreBtn.disabled = !username.value;
+});
+
+saveHighScore = (e) => {
+    e.preventDefault();
+
+    const score = {
+        score: mostRecentScore,
+        name: username.value,
+    };
+    highScores.push(score);
+    highScores.sort((a, b) => b.score - a.score);
+    highScores.splice(5);
+
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+    window.location.assign('/');
+};
+```
+
+#### Analyse
+- Récupération du score depuis localStorage
+- Gestion de l'activation/désactivation du bouton de sauvegarde
+- Fonction `saveHighScore()` pour sauvegarder le score :
+  - Ajout du nouveau score
+  - Tri des scores
+  - Limitation à 5 meilleurs scores
+  - Sauvegarde dans localStorage
 
 ### 3.6 highscores.html
 
-[Le contenu de cette section reste inchangé]
+#### Code source
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>High Scores</title>
+    <link rel="stylesheet" href="./app.css" />
+    <link rel="stylesheet" href="./highscores.css" />
+    <link rel="icon" href="icon_path" type="image/x-icon">
+  </head>
+  <body>
+    <div class="container">
+      <div id="highScores" class="flex-center flex-column">
+        <h1 id="finalScore">High Scores</h1>
+        <ul id="highScoresList"></ul>
+        <a class="btn" href="/">Go Home</a>
+      </div>
+    </div>
+    <script src="./highscores.js"></script>
+  </body>
+</html>
+```
+
+#### Analyse
+- Page simple pour afficher les meilleurs scores
+- Liste non ordonnée pour les scores
+- Lien vers highscores.js pour la logique d'affichage des scores
 
 ### 3.7 highscores.js
 
-#### Description
-Gère l'affichage des meilleurs scores.
+#### Code source
 
-#### Fonctionnalités principales
-- Récupération des scores depuis le localStorage
-- Génération dynamique de la liste des meilleurs scores
-
-#### Structure du code
-- Récupération de l'élément DOM pour la liste des scores
-- Extraction des scores du localStorage
-- Génération et insertion du HTML pour chaque score
-
-#### Observations
-- Code concis et efficace
-- Bonne utilisation des méthodes de tableau pour générer le HTML
-
-## 4. Analyse approfondie des méthodes JavaScript
-
-### 4.1 localStorage
-
-`localStorage` est une API web qui permet de stocker des données localement dans le navigateur de l'utilisateur. Dans ce projet, il est utilisé pour sauvegarder et récupérer les scores des joueurs.
-
-#### Utilisation dans le projet :
-- Dans `end.js` :
-  ```javascript
-  const mostRecentScore = localStorage.getItem('mostRecentScore');
-  localStorage.setItem('highScores', JSON.stringify(highScores));
-  ```
-- Dans `highscores.js` :
-  ```javascript
-  const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-  ```
-
-#### Explications :
-- `localStorage.getItem('key')` : Récupère la valeur associée à la clé spécifiée.
-- `localStorage.setItem('key', value)` : Stocke une paire clé-valeur.
-- Les valeurs sont toujours stockées sous forme de chaînes, d'où l'utilisation de `JSON.stringify()` et `JSON.parse()` pour stocker et récupérer des objets.
-
-### 4.2 Méthode map()
-
-La méthode `map()` crée un nouveau tableau avec les résultats de l'appel d'une fonction fournie sur chaque élément du tableau appelant.
-
-#### Utilisation dans le projet :
-Dans `highscores.js` :
 ```javascript
+const highScoresList = document.getElementById("highScoresList");
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
 highScoresList.innerHTML = highScores
   .map(score => {
     return `<li class="high-score">${score.name} - ${score.score}</li>`;
@@ -163,56 +386,14 @@ highScoresList.innerHTML = highScores
   .join("");
 ```
 
-#### Explications :
-- Cette méthode transforme chaque objet `score` en une chaîne HTML.
-- Elle est utilisée ici pour créer dynamiquement les éléments de liste des meilleurs scores.
+#### Analyse
+- Récupération des scores depuis localStorage
+- Utilisation de la méthode `map()` pour générer les éléments HTML de la liste
+- Insertion des scores dans le DOM
 
-### 4.3 Méthode sort()
+## 4. Analyse approfondie des méthodes JavaScript
 
-La méthode `sort()` trie les éléments d'un tableau en place et renvoie le tableau trié.
-
-#### Utilisation dans le projet :
-Dans `end.js` :
-```javascript
-highScores.sort((a, b) => b.score - a.score);
-```
-
-#### Explications :
-- Cette méthode est utilisée pour trier les scores du plus élevé au plus bas.
-- La fonction de comparaison `(a, b) => b.score - a.score` compare les scores de deux objets.
-- Un résultat négatif place `a` avant `b`, un résultat positif place `b` avant `a`.
-
-### 4.4 Méthode splice()
-
-La méthode `splice()` modifie le contenu d'un tableau en retirant ou remplaçant des éléments existants et/ou en ajoutant de nouveaux éléments.
-
-#### Utilisation dans le projet :
-Dans `end.js` :
-```javascript
-highScores.splice(5);
-```
-
-#### Explications :
-- Cette méthode est utilisée pour limiter le tableau des meilleurs scores aux 5 premiers éléments.
-- `splice(5)` supprime tous les éléments à partir de l'index 5, gardant ainsi seulement les 5 premiers scores.
-
-### 4.5 Event Listeners
-
-Les event listeners sont utilisés pour réagir aux interactions de l'utilisateur.
-
-#### Utilisation dans le projet :
-Dans `game.js` :
-```javascript
-choices.forEach((choice) => {
-    choice.addEventListener('click', (e) => {
-        // Logique de traitement du choix
-    });
-});
-```
-
-#### Explications :
-- Cette méthode attache un écouteur d'événements 'click' à chaque élément de choix.
-- Quand un choix est cliqué, la fonction de callback est exécutée, traitant la réponse de l'utilisateur.
+[Cette section reste inchangée par rapport à la version précédente]
 
 ## 5. Conclusions et recommandations
 
@@ -233,4 +414,4 @@ choices.forEach((choice) => {
 7. **Responsivité** : Vérifier et améliorer l'adaptabilité sur différents appareils.
 
 ### Conclusion finale
-Ce projet de quiz sur le Sénégal présente une base solide avec une bonne structure et une logique de jeu bien implémentée. L'utilisation judicieuse des méthodes JavaScript modernes et du localStorage démontre une bonne compréhension des concepts de développement web front-end. Avec quelques améliorations, notamment en termes de sécurité, d'accessibilité et de performance, il pourrait devenir une ressource éducative précieuse et engageante. Le code est bien organisé et facile à maintenir, ce qui facilitera les futures mises à jour et extensions du projet.
+Ce projet de quiz sur le Sénégal présente une base solide
